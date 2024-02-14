@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Data</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=xhVWfC9h58r_2DcajHORWipruSTKeO_P9I9tqC4ewJixJIA7hA9IfJULTLvu8kg6nBvceG6zMmfttfj3weObTAhDW-C25PeK5h7g0rHT0RXBcCUSrkkD-TM0DlCbIYP_2pX2EE0pf8BDMH5in39Tnws47_tq28uao8scgoLszpoeQbKFl-7PM2abCN9rs5BsLjlkYXWz3mlo624MOAabHA" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ndXJ5YXBpLW15LnNoYXJlcG9pbnQuY29tL3BlcnNvbmFsL3BiaV9zYV9ndXJ5YXBpX2NvbS9fbGF5b3V0cy8xNS9kb3dubG9hZC5hc3B4P1VuaXF1ZUlkPWU0MmE2ZTIyLWVkZjgtNGQ1Ni1hMGYzLTg3OGIzOTA0MmE5NA"/></head>
+<body>
+    
+    <div class="container mt-4">
+        <button id="loadDataButton" class="btn btn-primary mb-3">Verileri Yükle</button>
+        <table id="productsTable" class="table table-bordered table-striped">
+            <thead class="thead-light" id="tablehead">
+              dsadasda
+            </thead>
+            <tbody id="tableBody">
+           sdadasd
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Güvenli bir şekilde ipcRenderer fonksiyonlarına erişim
+        document.getElementById('loadDataButton').addEventListener('click', () => {
+    window.electronAPI.requestAllProducts();
+});
+
+
+        window.api.receive('all-products-data', (response) => {
+            
+                alert(response.message);
+                const data = response.data;
+                const tableBody = document.getElementById('tableBody');
+                const tableHead = document.getElementById('tablehead');
+                tableBody.innerHTML = ''; // Mevcut satırları temizle
+                tableHead.innerHTML = '<tr>'+
+                        '<th>ID</th>'+
+                        '<th>Kategori ID</th>'+
+                        '<th>Ürün Adı</th>'+
+                        '<th>Birim Fiyatı</th>'+
+                        '<th>Birim Başına Miktar</th>'+
+                        '<th>Stoktaki Birimler</th>'+
+                    '</tr>';
+                    if (response.success) {
+                data.forEach(product => {
+                    const row = `<tr>
+                        <td>${product.id}</td>
+                        <td>${product.categoryId}</td>
+                        <td>${product.productName}</td>
+                        <td>${product.unitPrice}</td>
+                        <td>${product.quantityPerUnit}</td>
+                        <td>${product.unitsInStock}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            } else {
+                alert("API'dan Kaynaklı Bir Hata Mevcut veya Servis Devre Dışı");
+            }
+        });
+    </script>
+</body>
+</html>
