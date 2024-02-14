@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    sfsdfsd
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            min-width: 250px;
+            max-width: 250px;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        .sidebar .nav-link {
+            color: #333;
+        }
+        .sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        .profile-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="d-flex">
+        <!-- Yan Navigasyon Çubuğu -->
+        <div class="sidebar d-flex flex-column">
+            <div class="profile-section">
+                <img src="img\WhatsApp Görsel 2023-12-12 saat 15.36.32_a7bde443.jpg" alt="Profil Resmi" class="img-fluid rounded-circle" width="100">
+                <h3>Serkan Fidanci</h3>
+                <p>System Admin</p>
+            </div>
+            <nav class="nav flex-column">
+                <a class="nav-link" href="#">Ana Sayfa</a>
+                <a id="HDavaOlustur" class="nav-link" href="#">Dava Dosyası Oluştur</a>
+                <a id="davalarigor" class="nav-link" href="#">Tüm Davalar</a>
+                <a class="nav-link" href="#">Müvekkillerim</a>
+                <a class="nav-link" href="#">Randevular</a>
+                <a class="nav-link" href="#">Ayarlar</a>
+                <a class="nav-link" href="#">Çıkış Yap</a>
+            </nav>
+        </div>
+
+        <!-- İçerik Bölümü -->
+        <div class="content flex-grow-1">
+            
+           
+<div class="section">
+    <div class="container">
+        <h2 class="mb-4">Dava Dosyaları İstatistikleri</h2>
+        <p>Bu bölüm, ofisimizin dava yönetimi performansını yansıtmaktadır. Veriler, müvekkillerimize sunduğumuz hizmetlerin kalitesini ve başarısını gösterir.</p>
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="stats-box bg-primary text-white p-4">
+                    <h3 id="AktifDavaSayisi">150</h3>
+                    <p>Aktif Dava</p>
+                    <a href="#" class="btn btn-light btn-sm">Aktif Davaları Gör</a> 
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stats-box bg-success text-white p-4">
+                    <h3 id="DavaSayisi">70</h3>
+                    <p>Toplam Dava Sayısı Dava</p>
+                    <a id="tumdava" class="btn btn-light btn-sm">Tüm Davaları Gör</a> 
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stats-box bg-success text-white p-4">
+                    <h3 id="basariliDavaSayisi">250</h3>
+                    <p>Başarılı Dava</p>
+                    <a id="başarilidava" class="btn btn-light btn-sm">Başarılı Davaları Gör</a> 
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stats-box bg-danger text-white p-4">
+                    <h3 id="basarisizDavaSayisi">70</h3>
+                    <p>Başarısız Dava</p>
+                    <a id="başarisizdava" class="btn btn-light btn-sm">Başarısız Davaları Gör</a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <h2>Dava Dosyaları Listesi</h2>
+        <table class="table" id="davaDosyalariTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Başlık</th>
+                    <th>Tür</th>
+                    <th>Durum</th>
+                    <th>Dosya Tarihi</th>
+                    <th>Davacı</th>
+                    <th>Davalı</th>
+                    <th>Detaylar</th>
+                    <th>Statu</th>
+                    <th>Aktif Dava</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- APIden gelen dava dosyaları -->
+            </tbody>
+        </table>
+    </div>
+</div>
+        </div>
+    </div>
+    
+
+    <script src="renderer.js"></script>
+
+   
+
+</body>
+</html>
+
+
